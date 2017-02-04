@@ -9,7 +9,6 @@ int main(void)
     char face = 'N';
 
     char *ptr = command;
-    char r2k_cmd;
     while(*ptr != '\0')
     {
         if(*ptr == 'Z')
