@@ -13,8 +13,9 @@ struct ListNode
 
 int main()
 {
-    ListNode *head;
+    ListNode *head, *tail;
     head = new ListNode(0);
+    tail = head;
     
     int m;
     cin >> m;
@@ -32,7 +33,10 @@ int main()
 
             newNode->next = head->next;
             head->next = newNode;
-            
+            if(head == tail)
+            {
+                tail = newNode;
+            }
         }
         else if(command == 'D')
         {
@@ -49,9 +53,22 @@ int main()
             }
             if(delNode)
             {
+                if(delNode == tail)
+                {
+                    tail = prev;
+                }
                 prev->next = delNode->next;
                 delete(delNode);
             }
+        }
+        else if(command == 'A')
+        {
+            ListNode *newNode;
+            newNode = new ListNode(val);
+            
+            newNode->next = tail->next;
+            tail->next = newNode;
+            tail = newNode;
         }
     }
     
