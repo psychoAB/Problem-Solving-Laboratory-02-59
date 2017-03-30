@@ -8,19 +8,19 @@ struct TreeNode
         : val(val), left(left), right(right) {}
 };
 
-void insert(TreeNode *r, int x)
+void insert(TreeNode **r, int x)
 {
-    if(!r)
+    if(!*r)
     {
-        r = new TreeNode(x);
+        *r = new TreeNode(x);
     }
-    else if(x < r -> val)
+    else if(x < (*r)->val)
     {
-        insert(r->left, x);
+        insert(&((*r)->left), x);
     }
-    else if(x > r -> val)
+    else if(x > (*r)->val)
     {
-        insert(r->right, x);
+        insert(&((*r)->right), x);
     }
 }
 
@@ -30,15 +30,15 @@ int find(TreeNode *r, int x)
     {
         return 0;
     }
-    else if(x == r-> val)
+    else if(x == r->val)
     {
         return 1;
     }
-    else if(x < r -> val)
+    else if(x < r->val)
     {
         return find(r->left, x);
     }
-    else if(x > r -> val)
+    else if(x > r->val)
     {
         return find(r->right, x);
     }
