@@ -19,9 +19,9 @@ void f(int n)
     f(n - 1);
 
     int max = 0;
-    for(int i = 0; i < n - 2; i++)
+    for(int i = n - 5; i < n - 2; i++)
     {
-        if(max < r[i])
+        if(n >= 0 && max < r[i])
         {
             max = r[i];
         }
