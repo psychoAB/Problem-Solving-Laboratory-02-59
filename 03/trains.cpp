@@ -1,7 +1,5 @@
-#include <iostream>
 #include <cstdio>
-
-using namespace std;
+#include <cstring>
 
 struct ListNode
 {
@@ -47,15 +45,17 @@ int main()
     
     for(int i = 0; i < m; i++)
     {
-        char c;
+        char c[100];
         int a, b;
-        cin >> c >> a >> b;
+        scanf("%s", c);
+
+        scanf("%d %d", &a, &b);
         
-        if(c == 'N')
+        if(c[0] == 'N')
         {
             n(head[b - 1], a);
         }
-        else if(c == 'M')
+        else if(c[0] == 'M')
         {
             mo(head[a - 1], head[b - 1]);
         }
